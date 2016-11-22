@@ -12,13 +12,13 @@ for i in range(1,299):
     pos.append(i/100.0)
 
 
-list1, idsurvey,z1, mass1,x11,c1,mu1, mu1e,mures1 = np.loadtxt('../DATA/SALT2mu_fitopt.fitres', usecols=(0,3, 7,13,20,22,37,39,41), unpack=True, dtype='string', skiprows=12)
+list1, idsurvey,z1, mass1,x11,c1,mu1, mu1e,mures1 = np.loadtxt('SALT2mu_fitopt.fitres', usecols=(0,3, 7,13,20,22,37,39,41), unpack=True, dtype='string', skiprows=12)
 z1 = z1.astype(float)
 mu1 = mu1.astype(float)
 mu1e = mu1e.astype(float)
 
 
-idsurvey2,z2,mu2,mu2e=np.loadtxt('/project/rkessler/dscolnic/HST_analysis/FITOPT000+SALT2mu.FITRES',usecols=(3,7,35,37), unpack=True, dtype='string', skiprows=12)
+idsurvey2,z2,mu2,mu2e=np.loadtxt('FITOPT000+SALT2mu.FITRES',usecols=(3,7,35,37), unpack=True, dtype='string', skiprows=12)
 z2 = z2.astype(float)
 mu2 = mu2.astype(float)
 mu2e = mu2e.astype(float)
@@ -108,7 +108,7 @@ mu1 = mu1.astype(float)
 mu1e = mu1e.astype(float)
 
 
-idsurvey2,z2,mu2,mu2e=np.loadtxt('/project/rkessler/rhounsell/IFU_SDT_COSMO/IFU/FITOPT000+SALT2mu.FITRES',usecols=(3,6,45,46), unpack=True, dtype='string', skiprows=12)
+idsurvey2,z2,mu2,mu2e=np.loadtxt('SDT.FITRES',usecols=(3,6,45,46), unpack=True, dtype='string', skiprows=12)
 z2 = z2.astype(float)
 mu2 = mu2.astype(float)
 mu2e = mu2e.astype(float)
@@ -119,7 +119,7 @@ mu1=np.append(mu1,mu2)
 mu1e=np.append(mu1e,mu2e)
 idsurvey=np.append(idsurvey,idsurvey2)
 
-idsurvey3,z3,nn_itype3,mu3,mu3e,zphot3 = np.loadtxt('/project/rkessler/rkessler/DES/analysis/NN_SALT2/out02_SN+hostZspec//NNSTAGE07_FINALGRID0_fitDATA+SIM3/NNFIT_DATA//FITOPT000+SALT2mu.FITRES', usecols=(3,7, 15,37,39,27), unpack=True, dtype='string', skiprows=20)
+idsurvey3,z3,nn_itype3,mu3,mu3e,zphot3 = np.loadtxt('DES.FITRES', usecols=(3,7, 15,37,39,27), unpack=True, dtype='string', skiprows=20)
 print np.sum(nn_itype3=='1'), np.sum(nn_itype3!='1')
 z3=z3.astype(float)
 mu3=mu3.astype(float)
@@ -190,5 +190,5 @@ plt.tight_layout()
 plt.show()
                                                             
     
-plt.savefig('hubble_nw.png')
+plt.savefig('hubble.png')
     
