@@ -65,7 +65,7 @@ for uniqsu in uniqsurv:
             tempmu2=mu1[xx[0]]-mu_syn[xx[0]]
             tempmue=mu1e[xx[0]]
             #print 'col2', co2, len(col)
-            ax[0].errorbar(tempz, tempmu, yerr=tempmue, fmt='o', color=col[co2],ecolor=col[co2])
+            ax[0].errorbar(tempz, tempmu, yerr=tempmue, fmt='o', color=col[co2],ecolor=col[co2],alpha=.1)
             ax[0].text(xpos[co2],ypos[co2],labels[co2],fontdict={'fontsize':fo[co2]}, color=col[co2])
                       
         co2=co2+1
@@ -160,8 +160,8 @@ tempmue=[]
 uniqsurv=set(idsurvey)
 print uniqsurv
 
-uniqsurv=['15','10','103']
-labels=['PS1','DES','WFIRST']
+uniqsurv=['15','10']
+labels=['PS1','DES']
 xpos=[.2,.45,.6,.8,.8,.45,.35,.4]
 ypos=[39,40,41,42,43,44,43,45,46,43,42,43]
 fo=[14,14,14,14,14,14,14,20,20,20,20,20,20,20]
@@ -177,14 +177,14 @@ for uniqsu in uniqsurv:
                 tempmu2=mu1[xx[0]]-mu_syn[xx[0]]
                 tempmue=mu1e[xx[0]]
                 #print 'col2', co2, len(col)
-                ax[1].errorbar(tempz, tempmu, yerr=tempmue, fmt='o', color=col[co2],ecolor=col[co2])
-                ax[1].text(xpos[co2],ypos[co2],labels[co2],fontdict={'fontsize':fo[co2]}, color=col[co2])
+                ax[0].errorbar(tempz, tempmu, yerr=tempmue, fmt='o', color=col[co2],ecolor=col[co2])
+                ax[0].text(xpos[co2],ypos[co2],labels[co2],fontdict={'fontsize':fo[co2]}, color=col[co2])
             co2=co2+1
 
-ax[1].set_ylabel('m-M (mag)')
-ax[1].set_xlim(0.01,2)
-ax[1].set_xscale('log')
-ax[1].set_ylim(32,48)
+# ax[1].set_ylabel('m-M (mag)')
+# ax[1].set_xlim(0.01,2)
+# #ax[1].set_xscale('log')
+# ax[1].set_ylim(32,48)
 
 plt.tight_layout()
 plt.show()
