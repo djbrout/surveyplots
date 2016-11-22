@@ -5,8 +5,8 @@ import math
 from astropy.cosmology import FlatLambdaCDM
 cosmo = FlatLambdaCDM(H0=70, Om0=0.3)
 
-fig, ax = plt.subplots(2,1,sharex=True)
-
+fig, axs = plt.subplots(1,1,sharex=True)
+ax = [axs,axs]
 pos=[]
 for i in range(1,299):
     pos.append(i/100.0)
@@ -65,7 +65,7 @@ for uniqsu in uniqsurv:
             tempmu2=mu1[xx[0]]-mu_syn[xx[0]]
             tempmue=mu1e[xx[0]]
             #print 'col2', co2, len(col)
-            ax[0].errorbar(tempz, tempmu, yerr=tempmue, fmt='o', color=col[co2],ecolor=col[co2],alpha=.1)
+            ax[0].errorbar(tempz, tempmu, yerr=tempmue, fmt='o', color=col[co2],ecolor=col[co2],alpha=.4)
             ax[0].text(xpos[co2],ypos[co2],labels[co2],fontdict={'fontsize':fo[co2]}, color=col[co2])
                       
         co2=co2+1
@@ -91,6 +91,7 @@ bin_std = [np.std(mu1[digitized == i])/np.sqrt(len(mu1[digitized == i])) for i i
 ax[0].set_ylabel('m-M (mag)')
 ax[0].set_xlim(0.01,2)
 ax[0].set_xscale('log')
+ax[0].set_ylim(32,47)
 
 digitized = np.digitize(z1, bins)
 bin_means = [(mu1[digitized == i]-mu_syn[digitized == i]).mean() for i in range(0, len(bins))]
@@ -177,7 +178,7 @@ for uniqsu in uniqsurv:
                 tempmu2=mu1[xx[0]]-mu_syn[xx[0]]
                 tempmue=mu1e[xx[0]]
                 #print 'col2', co2, len(col)
-                ax[0].errorbar(tempz, tempmu, yerr=tempmue, fmt='o', color=col[co2],ecolor=col[co2])
+                ax[0].errorbar(tempz, tempmu, yerr=tempmue, fmt='o', color=col[co2],ecolor=col[co2],alpha=.6)
                 ax[0].text(xpos[co2],ypos[co2],labels[co2],fontdict={'fontsize':fo[co2]}, color=col[co2])
             co2=co2+1
 
